@@ -25,11 +25,13 @@ class CreateOrderInteractorTests: XCTestCase {
     }
     
     // MARK - Test setup
+    
     func setupCreateOrderInteractor() {
         createOrderInteractor = CreateOrderInteractor()
     }
     
-    // MARK - Test doubles
+    // MARK - Test class spy
+    
     class CreateOrderInteractorOutputSpy: CreateOrderInteractorOutput {
         var presentExpirationDataCalled = false
         
@@ -39,11 +41,12 @@ class CreateOrderInteractorTests: XCTestCase {
     }
     
     // MARK - Test format expiration date
+    
     func testFormatExpirationDateShouldAskPresenterToFormatExpirationDate() {
         // Given
         let createOrderInteractorOutputSpy = CreateOrderInteractorOutputSpy()
         createOrderInteractor.output = createOrderInteractorOutputSpy
-        let request = CreateOrder_FormatExpirationDate_Request(date: NSDate())
+        let request = CreateOrder_FormatExpirationDate_Request(date: Date())
         
         // When
         createOrderInteractor.formatExpirationDate(request: request)
@@ -53,6 +56,7 @@ class CreateOrderInteractorTests: XCTestCase {
     }
     
     // MARK - Test shipping methods
+    
     func testShippingMethodsShouldReturnAllAvailableShippingMethods() {
         // Given
         let allAvailableShippingMethods = ["Standard Shipping",
@@ -65,12 +69,4 @@ class CreateOrderInteractorTests: XCTestCase {
         // Then
         XCTAssertEqual(allAvailableShippingMethods, returnedShippingMethods, "Shipping Methods should list all available shipping methods")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

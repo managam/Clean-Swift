@@ -20,9 +20,9 @@
 		5B1476041DF673C700A30228 /* CreateOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1475FD1DF673C700A30228 /* CreateOrderViewController.swift */; };
 		5B1476051DF673C700A30228 /* CreateOrderWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1475FE1DF673C700A30228 /* CreateOrderWorker.swift */; };
 		5B1476271DF7B73300A30228 /* CleanStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1476261DF7B73300A30228 /* CleanStoreTests.swift */; };
-		5B1476311DF7B76500A30228 /* CreateOrderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1476301DF7B76500A30228 /* CreateOrderInteractorTests.swift */; };
 		5B1476351DF7C6B000A30228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1475E31DF672B100A30228 /* Main.storyboard */; };
 		5B1476371DF7CBCD00A30228 /* CreateOrderPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1476361DF7CBCD00A30228 /* CreateOrderPresenterTests.swift */; };
+		5B7A7B021DF7CC2100585B6A /* CreateOrderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A7B011DF7CC2100585B6A /* CreateOrderInteractorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,8 @@
 		5B1476241DF7B73300A30228 /* CleanStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1476261DF7B73300A30228 /* CleanStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanStoreTests.swift; sourceTree = "<group>"; };
 		5B1476281DF7B73300A30228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B1476301DF7B76500A30228 /* CreateOrderInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateOrderInteractorTests.swift; sourceTree = "<group>"; };
 		5B1476361DF7CBCD00A30228 /* CreateOrderPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOrderPresenterTests.swift; path = Order/CreateOrder/CreateOrderPresenterTests.swift; sourceTree = "<group>"; };
+		5B7A7B011DF7CC2100585B6A /* CreateOrderInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateOrderInteractorTests.swift; path = Order/CreateOrder/CreateOrderInteractorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 		5B14762F1DF7B74A00A30228 /* CreateOrder */ = {
 			isa = PBXGroup;
 			children = (
-				5B1476301DF7B76500A30228 /* CreateOrderInteractorTests.swift */,
+				5B7A7B011DF7CC2100585B6A /* CreateOrderInteractorTests.swift */,
 				5B1476361DF7CBCD00A30228 /* CreateOrderPresenterTests.swift */,
 			);
 			name = CreateOrder;
@@ -318,8 +318,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1476311DF7B76500A30228 /* CreateOrderInteractorTests.swift in Sources */,
 				5B1476271DF7B73300A30228 /* CleanStoreTests.swift in Sources */,
+				5B7A7B021DF7CC2100585B6A /* CreateOrderInteractorTests.swift in Sources */,
 				5B1476371DF7CBCD00A30228 /* CreateOrderPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +527,7 @@
 				5B14762C1DF7B73300A30228 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -101,7 +101,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     
     @IBAction func expirationDatePickerValueChanged(_ sender: UIDatePicker) {
         let date = expirationDatePicker.date
-        let request =  CreateOrder_FormatExpirationDate_Request(date: date as NSDate)
+        let request =  CreateOrder_FormatExpirationDate_Request(date: date)
         output.formatExpirationDate(request: request)
     }
     
@@ -110,15 +110,4 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
         expirationDateTextField.text = date
     }
     
-    // MARK: - Event handling
-    
-    func doSomethingOnLoad()
-    {
-        // NOTE: Ask the Interactor to do some work
-        
-        //let request = CreateOrder.Something.Request()
-        //output.doSomething(request: request)
-    }
-    
-    // MARK: - Display logic
 }

@@ -35,7 +35,7 @@ class CreateOrderPresenter: CreateOrderPresenterInput
     // MARK: - Expiration date
     
     func presentExpirationDate(response: CreateOrder_FormatExpirationDate_Response) {
-        let date = dateFormatter.string(from: response.date as Date)
+        let date = dateFormatter.string(from: response.date)
         let viewModel = CreateOrder_FormatExpirationDate_ViewModel(date: date)
         output.displayExpirationDate(viewModel: viewModel)
     }
