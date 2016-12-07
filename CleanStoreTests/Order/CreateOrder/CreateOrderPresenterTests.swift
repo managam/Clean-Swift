@@ -72,5 +72,20 @@ class CreateOrderPresenterTests: XCTestCase {
         XCTAssertEqual(returnedDate, expectedDate, "Presenting an expiration date should convert date to string")
     }
     
+    // MARK - Display date string
+    
+    func testPresentExpirationDateShouldAskViewControllerToDisplayDateString() {
+        // Given
+        let createOrderPresenterOutputSpy = CreateOrderPresenterOutputSpy()
+        createOrderPresenter.output = createOrderPresenterOutputSpy
+        
+        let response = CreateOrder_FormatExpirationDate_Response(date: Date())
+        
+        // When
+        createOrderPresenter.presentExpirationDate(response: response)
+        
+        // Then
+        XCTAssert(createOrderPresenterOutputSpy.displayExpirationDateCanceled, "Presenting an expiration date should ask view controller to display date string")
+    }
     
 }
