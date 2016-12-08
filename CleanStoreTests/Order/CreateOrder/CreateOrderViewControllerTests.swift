@@ -216,4 +216,19 @@ class CreateOrderViewControllerTests: XCTestCase {
         let textField = createOrderViewController.textFields[0]
         XCTAssert(textField.isFirstResponder, "The text field should have keyboard focus when user taps on the corresponding table view row")
     }
+    
+    // MARK - Text configure picker
+    func testCreateOrderViewControllerShouldConfigurePickersWhenViewIsLoaded() {
+        // Given
+        
+        // When
+        
+        // Then
+        let inputViewExpirationDateTextField = createOrderViewController.expirationDateTextField.inputView
+        let expirationDatePicker = createOrderViewController.expirationDatePicker
+        let inputViewShippingMethodTextField = createOrderViewController.shippingMethodTextField.inputView
+        let shippingMethodPicker = createOrderViewController.shippingMethodPicker
+        XCTAssertEqual(inputViewExpirationDateTextField, expirationDatePicker, "Expiration date text field should have the expiration date picker as input view")
+        XCTAssertEqual(inputViewShippingMethodTextField, shippingMethodPicker, "Shipping method text field should have the shipping method picker as input view")
+    }
 }
