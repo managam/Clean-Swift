@@ -23,6 +23,7 @@
 		5B1476371DF7CBCD00A30228 /* CreateOrderPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1476361DF7CBCD00A30228 /* CreateOrderPresenterTests.swift */; };
 		5B7A7B021DF7CC2100585B6A /* CreateOrderInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A7B011DF7CC2100585B6A /* CreateOrderInteractorTests.swift */; };
 		5B7A7BD31DF8FD8300585B6A /* CreateOrderViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7A7BD21DF8FD8300585B6A /* CreateOrderViewControllerTests.swift */; };
+		5B7A7BD71DF97CBA00585B6A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B1475E31DF672B100A30228 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7A7BD71DF97CBA00585B6A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -34,6 +34,7 @@ class CreateOrderViewControllerTests: XCTestCase {
         let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
         createOrderViewController = navigationController.topViewController as! CreateOrderViewController
         UIApplication.shared.keyWindow?.rootViewController = createOrderViewController
+        addViewToWindow()
     }
     
     func addViewToWindow() {
@@ -159,5 +160,20 @@ class CreateOrderViewControllerTests: XCTestCase {
         let expectedShippingMethod = "One-day Shipping"
         let displayedShippingMethod = createOrderViewController.shippingMethodTextField.text
         XCTAssertEqual(expectedShippingMethod, displayedShippingMethod, "Selecting a shipping method in the shipping method picker should display the selected shipping method to the user")
+    }
+    
+    // MARK - Test text fields
+    func testCursorFocuesShouldMoveToNextTextFieldWhenUserTapsReturnKey() {
+        // Given
+        let currentTextField = createOrderViewController.textFields[0]
+        let nextTextField = createOrderViewController.textFields[1]
+        currentTextField.becomeFirstResponder()
+        
+        // When
+        _  = createOrderViewController.textFieldShouldReturn(currentTextField)
+        
+        // Then
+        XCTAssert(!currentTextField.isFirstResponder, "Current text field should lose keyboard focus")
+        XCTAssert(nextTextField.isFirstResponder, "Next text field should gain keyboard focus")
     }
 }
