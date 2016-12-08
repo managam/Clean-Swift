@@ -22,6 +22,7 @@ class CreateOrderViewControllerTests: XCTestCase {
     }
     
     override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
         window = nil
         super.tearDown()
     }
@@ -175,5 +176,44 @@ class CreateOrderViewControllerTests: XCTestCase {
         // Then
         XCTAssert(!currentTextField.isFirstResponder, "Current text field should lose keyboard focus")
         XCTAssert(nextTextField.isFirstResponder, "Next text field should gain keyboard focus")
+    }
+    
+    func testKeyboardShoudBeDismissWhenUserTapsReturnKeyWhenFocusIsInLastTextField() {
+        // Given
+        
+        // Scroll to the bottom of the table view so the last text field is visible and its gesture recognizer is set up
+        let lastSectionIndex = createOrderViewController.tableView.numberOfSections - 1
+        let lastRowIndex = createOrderViewController.tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        let indexPath = IndexPath(row: lastRowIndex, section: lastSectionIndex)
+        createOrderViewController.tableView.scrollToRow(at: indexPath, at: .bottom, animated: false)
+        
+        // Show keyboard for the last text field
+        let numTextFields = createOrderViewController.textFields.count
+        let lastTextField = createOrderViewController.textFields[numTextFields - 1]
+        lastTextField.becomeFirstResponder()
+        
+        // Waiting for drawing view
+        RunLoop.current.run(until: Date())
+        
+        // When
+        _ = createOrderViewController.textFieldShouldReturn(lastTextField)
+        expectation(forNotification: NSNotification.Name.UIKeyboardDidHide.rawValue, object: nil, handler: nil)
+        
+        // Then
+        waitForExpectations(timeout: 1.0, handler: { (error: Error?) -> Void in
+            XCTAssert(!lastTextField.isFirstResponder, "Last text field should lose keyboard focus")
+        })
+    }
+    
+    func testTextFieldShouldHaveFocusWhenUserTapOnTableViewRow() {
+        // Given
+        
+        // When
+        let indexPath = IndexPath(row: 0, section: 0)
+        createOrderViewController.tableView(createOrderViewController.tableView, didSelectRowAt: indexPath)
+        
+        // Then
+        let textField = createOrderViewController.textFields[0]
+        XCTAssert(textField.isFirstResponder, "The text field should have keyboard focus when user taps on the corresponding table view row")
     }
 }
