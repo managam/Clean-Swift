@@ -99,7 +99,7 @@ class CreateOrderViewController: UITableViewController, CreateOrderViewControlle
     @IBOutlet weak var expirationDateTextField: UITextField!
     @IBOutlet var expirationDatePicker: UIDatePicker!
     
-    @IBAction func expirationDatePickerValueChanged(_ sender: UIDatePicker) {
+    @IBAction func expirationDatePickerValueChanged(_ sender: AnyObject) {
         let date = expirationDatePicker.date
         let request =  CreateOrder_FormatExpirationDate_Request(date: date)
         output.formatExpirationDate(request: request)
